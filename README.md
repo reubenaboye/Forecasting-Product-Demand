@@ -1,127 +1,54 @@
 
-1
 
 # Forecasting-Product-Demand
 
-2
-
-​
-
-3
-
 ## Project/Goals
-
-4
-
-​
-
-5
 
 The problem we are considering is that of forecasting product demand for a collection of Walmart stores. We are thus faced with a time-series problem. 
 
-6
-
-
 ## Dataset
 
-7
-
 The dataset contains the unit sales of various products sold in the USA organizes in a grouped time series. More specifically, the datset contains the unit sales of 30,49 products, classified into three product categories (Hobbies, Foods, and Households) and are in turn disaggregated into 7 product departments per store. The products are sold across 10 stores located in 3 state (CA, TX, WI). 
-
-8
-
 
 The bottom level of the grouped data structure is a product – dept – category – store – state combination. Importantly this data structure is not hierarchical because there are multiple aggregation paths, across varying combinations of product and geographical mappings.
 
 [**Aggregation Paths**] Unit Sales of all products can be aggregated and disaggregated by:
 
-9
-10
-
 - Total (all stores/states)
-
-11
-
 - State
-
-12
-
 - Store
-
-13
-
 - Category
-
-14
-
 - Department
-
-15
-
 - Category – State Combination
-
-16
-
 - Department – State Combination
-
-17
-
 - Category-Store
-
-18
-
 - Department Store
 
-19
-
 Unit sales of some product x can be also aggregated/disaggregated by:
-
-20
-
 - Store – State Combination
-
-21
-
 - Store
-
-22
-
 - State
-
-23
-
 
 In other words, we can aggregate/disaggregate along either:
 
-24
-
 1. Geographic lines
-
-25
-
 2. Product Lines
-
-26
-
 3.  Crossing of product and geographic lines. 
 
-27
-28
-
-​A key issue in the project was the size of the dataset; in total, considering all unique product-department-category-store-state-combinations, the number of observations in the dataset was north of 500 million. As a result, the forecasting analysis was conducted on a small sample of data (1%-10% of total) and on seperared and aggregate levels of the data. 
+A key issue in the project was the size of the dataset; in total, considering all unique product-department-category-store-state-combinations, the number of observations in the dataset was north of 500 million. As a result, the forecasting analysis was conducted on a small sample of data (1%-10% of total) and on seperared and aggregate levels of the data. 
 
 ## Models 
 
 The analysis considers the following collection of models:
 
 1. Statistical Models
-   1.1. ARIMA
-   1.2. SARIMA
-   1.3. SARIMAX
+- ARIMA
+- SARIMA
+- SARIMAX
 2. Neural Network Models
-   2.1. Linear
-   2.2. Dense
-   2.3. LSTM
+- Linear
+- Dense
+- LSTM
 
 The analysis contextualizes the models as a series of "progressions"; the statistical models progress in terms of degree of information incorporated in forecast (e.g., seasonality, correleated variables) and the neural netowrk models progress in terms of greater flexibilty in model structure. We hypothesize the more complex models will demonstrate greater accuracy in forecasts for these reasons. 
 
